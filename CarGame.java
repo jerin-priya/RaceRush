@@ -89,4 +89,90 @@ class Racing{
         frame.setLocationRelativeTo(Null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+    public void createMenuBar(){
+        JMenuBar menu = new JMenuBar();
+        JMenu file = new JMenu("Game");
+        JMenuItem exit = new JMenuItem("exit");
+        JMenuItem newgame = new JMenuItem("New Game");
+        newgame.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                NEWGAME=true;
+            }
+        });
+        exit.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
+            }
+        });
+        file.add(newgame);
+        file.add(exit);
+        menu.add(file);
+        JMenu difficulty = new JMenu("Difficulty");
+        JMenuItem easy = new JMenuItem("Easy");
+        JMenuItem normal = new JMenuItem("Normal");
+        JMenuItem hard = new JMenuItem("Hard");
+        JMenuItem veryhard = new JMenuItem("Very Hard");
+        easy.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                VHARD=false;
+                GAME_LEVEL = 300;
+                cars[0].setText("Easy");
+                panel.add(cars[0]);
+                score=0;
+            }
+        });
+        normal.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                VHARD=false;
+                GAME_LEVEL = 500;
+                cars[0].setText("Normal");
+                panel.add(cars[0]);
+                score=0;
+            }
+        });
+        hard.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                VHARD=false;
+                GAME_LEVEL = 1000;
+                cars[0].setText("Hard");
+                panel.add(cars[0]);
+                score=0;
+            }
+        });
+        veryhard.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                GAME_LEVEL = 1000;
+                cars[0].setText("Very Hard");
+                panel.add(cars[0]);
+                score = 0;
+                k=1;
+                VHARD=true;
+            }
+        });
+
+        difficulty.add(easy);
+        difficulty.add(normal);
+        difficulty.add(hard);
+        difficulty.add(veryhard);
+        menu.add(difficulty);
+        JMenu help = new JMenu("Help");
+        JMenuItem about = new JMenuItem("About");
+        about.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                JOptionPane.showMessageDialog(null,"Author - Jerin Hasan Priya\nArnab Sen Antu");
+            }
+        });
+        JMenuItem instruction = new JMenuItem("Instructions");
+        instruction.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                JOptionPane.showMessageDialog(null,"INSTRUCTIONS:\n* Use arrow keys to move the car Left,Right,Up and down\n * Use SpaceBar to pause and continue race");
+            }
+        });
+
+        help.add(about);
+        help.add(instruction);
+        menu.add(help);
+        frame.setJMenuBar(menu);
+    }
 }
