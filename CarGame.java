@@ -86,7 +86,7 @@ class Racing{
         frame.setResizable(false);
         frame.getContentPane().add(panel);
         frame.setVisible(true);
-        frame.setLocationRelativeTo(Null);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -322,6 +322,36 @@ class Racing{
         }
         catch(Exception e){
             System.out.println(e);
+        }
+    }
+
+    public void pressEvent(KeyEvent e){
+        if(LEFT_END==false && e.getKeyCode()==37 && PAUSE==false){
+            if(RIGHT_END==false){
+                LEFT_END=true;
+            }
+            RIGHT_END=false;
+            PCAR_XBOUND=PCAR_XBOUND-75;
+            cars[1].setBounds(PCAR_XBOUND,PCAR_YBOUND,CAR_SIZEX,CAR_SIZEY);
+        }
+        if(RIGHT_END==false && e.getKeyCode()==39 && PAUSE==false){
+            if(LEFT_END==false){
+                RIGHT_END=true;
+            }
+            LEFT_END=false;
+            PCAR_XBOUND = PCAR_XBOUND +75;
+            cars[1].setBounds(PCAR_XBOUND,PCAR_YBOUND,CAR_SIZEX,CAR_SIZEY);
+        }
+        if(e.getKeyCode()==38 && PCAR_YBOUND>200 && PAUSE == false){
+            PCAR_YBOUND=PCAR_YBOUND-5;
+            cars[1].setBounds(PCAR_XBOUND,PCAR_YBOUND,CAR_SIZEX,CAR_SIZEY);
+        }
+        if(e.getKeyCode()==40 && PCAR_YBOUND<375 && PAUSE ==false){
+            PCAR_YBOUND=PCAR_YBOUND+5;
+            cars[1].setBounds(PCAR_XBOUND,PCAR_YBOUND,CAR_SIZEX,CAR_SIZEY);
+        }
+        if(e.getKeyCode()==32){
+            PAUSE=!PAUSE;
         }
     }
 }
