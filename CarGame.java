@@ -6,7 +6,62 @@ import java.lang.Object;
 
 public class CarGame {
     public static void main(String args[]){
+        new LoadingFrame();
         new Racing();
+    }
+}
+
+class LoadingFrame extends JFrame {
+    private JProgressBar Pb;
+    LoadingFrame(){
+        LoadingScreen ls = new LoadingScreen();
+        this.setSize(897,690);
+        this.setLayout(null);
+        setPb();
+        this.add(Pb);
+        this.add(ls);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+        fillPb();
+        this.dispose();
+    }
+
+    private void setPb() {
+        this.Pb = new JProgressBar();
+        this.Pb.setValue(0);
+        this.Pb.setBorderPainted(false);
+        this.Pb.setBounds(250,580, 390,40);
+        this.Pb.setForeground(new Color(134, 199, 55));
+        this.Pb.setBackground(new Color(220,250,230));
+    }
+    private void fillPb(){
+        int cnt = 0;
+
+        while (cnt <=100){
+            this.Pb.setValue(cnt);
+            try{
+                Thread.sleep(80);
+            }
+            catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            cnt += 2;
+        }
+    }
+}
+
+class LoadingScreen extends JPanel {
+    Image img1;
+    LoadingScreen(){
+        img1 = new ImageIcon("coverpic1.png").getImage();
+        this.setBounds(0,0,897,690);
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        g.drawImage(img1, 0, 0,null);
     }
 }
 
@@ -31,8 +86,8 @@ class Racing{
     JButton[] cars = new JButton[10];
     JLabel Score = new JLabel("Score:"+score);
     JLabel Cars = new JLabel("Cars:"+CAR_COUNT);
-    ImageIcon car = new ImageIcon("car1.jpg","Player Car");
-    ImageIcon car1 = new ImageIcon("car2.jpg","opp Car");
+    ImageIcon car = new ImageIcon("c2.jpg","Player Car");
+    ImageIcon car1 = new ImageIcon("e3.png","opp Car");
 
     public Racing(){
         createFrame();
