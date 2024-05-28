@@ -1,6 +1,6 @@
 # RaceRush
 
-**RaceRush!** CarGame is a Java-based game project developed as a simple driving game application. The stack used includes Java for both frontend and backend development, with the Swing framework for the graphical user interface.
+**RaceRush!** is a Java-based game project developed as a simple driving game application. The stack used includes Java for both frontend and backend development, with the Swing framework for the graphical user interface.
 
 ## Features
 - Car movement control (left, right, up, down)
