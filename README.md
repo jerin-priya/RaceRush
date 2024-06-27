@@ -1,6 +1,6 @@
 # RaceRush
 
-[Watch the project's screen shots]https://github.com/jerin-priya/RaceRush/tree/main/Project%20Images
+[Watch the video](https://github.com/jerin-priya/RaceRush/tree/main/Project%20Images)
 
 
 **RaceRush!** is a Java-based game project developed as a simple driving game application. The stack used includes Java for both frontend and backend development, with the Swing framework for the graphical user interface.
